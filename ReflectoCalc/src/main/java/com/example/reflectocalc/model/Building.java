@@ -1,7 +1,6 @@
 package com.example.reflectocalc.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
@@ -10,13 +9,12 @@ public class Building {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "name")
+    private String name;
 
-    public Long getId() {
-        return id;
-    }
+    @Column(name = "address")
+    private String address;
 }
