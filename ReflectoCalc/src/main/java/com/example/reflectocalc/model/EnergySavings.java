@@ -21,4 +21,36 @@ public class EnergySavings {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "building_id")
     private Building building;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public double getSavings() {
+        return savings;
+    }
+
+    public void setSavings(double savings) {
+        this.savings = savings;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
 }
