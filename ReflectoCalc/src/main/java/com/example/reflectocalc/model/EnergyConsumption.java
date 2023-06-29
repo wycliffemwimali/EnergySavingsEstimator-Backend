@@ -1,8 +1,12 @@
 package com.example.reflectocalc.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.data.relational.core.mapping.Table;
 
+@Data
+@Builder
 @Entity
 @Table(name = "energy_consumptions")
 public class EnergyConsumption {
@@ -17,27 +21,11 @@ public class EnergyConsumption {
     @Column(nullable = false)
     private double consumption;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
+    public EnergyConsumption() {
         this.id = id;
-    }
-
-    public Building getBuilding() {
-        return building;
-    }
-
-    public void setBuilding(Building building) {
         this.building = building;
-    }
-
-    public double getConsumption() {
-        return consumption;
-    }
-
-    public void setConsumption(double consumption) {
         this.consumption = consumption;
+
     }
 }
