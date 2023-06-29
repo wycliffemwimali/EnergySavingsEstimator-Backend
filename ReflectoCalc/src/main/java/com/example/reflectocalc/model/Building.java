@@ -1,8 +1,12 @@
 package com.example.reflectocalc.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.data.relational.core.mapping.Table;
 
+@Data
+@Builder
 @Entity
 @Table(name = "building")
 public class Building {
@@ -18,27 +22,10 @@ public class Building {
     @Column(name = "address")
     private String address;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
+    public Building() {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
         this.address = address;
     }
+
 }
