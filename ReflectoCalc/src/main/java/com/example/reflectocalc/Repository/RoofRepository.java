@@ -12,5 +12,5 @@ public interface RoofRepository extends JpaRepository<Roof, Long> {
     List<Roof> findByBuildingId(Long buildingId);
 
     // Custom query method to find rooftops by reflectance
-    List<Roof> findByReflectanceGreaterThan(double reflectance);
+//    List<Roof> findByReflectanceGreaterThan(double reflectance);
 }

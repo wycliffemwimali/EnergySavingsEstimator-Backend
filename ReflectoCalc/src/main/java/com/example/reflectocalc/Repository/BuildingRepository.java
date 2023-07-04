@@ -9,8 +9,8 @@ import java.util.List;
 @Repository
 public interface BuildingRepository extends JpaRepository<Building, Long> {
     // Custom query method to find buildings by city
-    List<Building> findByCity(String city);
+    List<Building> findByName(String name);
 
     // Custom query method to find buildings by owner name
-    List<Building> findByOwnerName(String ownerName);
+    List<Building> findByAddress(String address);
 }
