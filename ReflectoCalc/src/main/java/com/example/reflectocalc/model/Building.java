@@ -30,6 +30,36 @@ public class Building {
     @OneToOne(mappedBy = "building", cascade = CascadeType.ALL)
     private Rooftop rooftop;
 
+    private double indoorTemperature;
+
+    public double getIndoorTemperature() {
+        return indoorTemperature;
+    }
+
+    public void setIndoorTemperature(double indoorTemperature) {
+        this.indoorTemperature = indoorTemperature;
+    }
+
+    public double getOutdoorTemperature() {
+        return outdoorTemperature;
+    }
+
+    public void setOutdoorTemperature(double outdoorTemperature) {
+        this.outdoorTemperature = outdoorTemperature;
+    }
+
+    public double getTemperatureData() {
+        return TemperatureData;
+    }
+
+    public void setTemperatureData(double temperatureData) {
+        TemperatureData = temperatureData;
+    }
+
+    private double outdoorTemperature;
+
+    private double TemperatureData;
+
     public Long getId() {
         return id;
     }
