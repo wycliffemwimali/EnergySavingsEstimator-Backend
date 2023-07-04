@@ -5,7 +5,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
 @Table(name = "roof")
-public class Roof {
+public class Rooftop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,6 +15,17 @@ public class Roof {
 
     @Column(name = "area")
     private double area;
+
+    public double getReflectance() {
+        return reflectance;
+    }
+
+    public void setReflectance(double reflectance) {
+        this.reflectance = reflectance;
+    }
+
+    @Column(name = "reflactance")
+    private double reflectance;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "building_id")
