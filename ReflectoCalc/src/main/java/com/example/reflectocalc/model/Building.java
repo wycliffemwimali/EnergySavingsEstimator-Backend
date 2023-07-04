@@ -5,7 +5,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 
 @Entity
-@Table(name = "building")
+@Table(name = "buildings")
 public class Building {
 
 
@@ -18,6 +18,17 @@ public class Building {
 
     @Column(name = "address")
     private String address;
+
+    public Rooftop getRooftop() {
+        return rooftop;
+    }
+
+    public void setRooftop(Rooftop rooftop) {
+        this.rooftop = rooftop;
+    }
+
+    @OneToOne(mappedBy = "building", cascade = CascadeType.ALL)
+    private Rooftop rooftop;
 
     public Long getId() {
         return id;

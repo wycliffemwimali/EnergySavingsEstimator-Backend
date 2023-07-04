@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Entity
-@Table(name = "roof")
+@Table(name = "rooftops")
 public class Rooftop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,11 @@ public class Rooftop {
     @Column(name = "reflactance")
     private double reflectance;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "building_id")
+//    private Building building;
+
+    @OneToOne
     @JoinColumn(name = "building_id")
     private Building building;
 
