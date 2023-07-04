@@ -8,7 +8,9 @@ import java.util.List;
 public interface RooftopService {
     List<Rooftop> getRooftopsByBuildingId(Long buildingId);
 
-    void saveRooftop(Rooftop rooftop);
+//    void saveRooftop(Rooftop rooftop);
+//
+//    void deleteRooftopById(Long rooftopId) throws ChangeSetPersister.NotFoundException;
 
-    void deleteRooftopById(Long rooftopId) throws ChangeSetPersister.NotFoundException;
+    double getRooftopArea(Long rooftopId);
 }

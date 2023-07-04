@@ -24,7 +24,7 @@ public class Rooftop {
         this.reflectance = reflectance;
     }
 
-    @Column(name = "reflactance")
+    @Column(name = "reflectance")
     private double reflectance;
 
 //    @ManyToOne(fetch = FetchType.LAZY)

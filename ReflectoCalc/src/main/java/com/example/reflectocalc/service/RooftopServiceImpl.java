@@ -1,10 +1,10 @@
 package com.example.reflectocalc.service;
 
 import com.example.reflectocalc.Repository.RooftopRepository;
-import com.example.reflectocalc.model.Rooftop;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
+import com.example.reflectocalc.model.Rooftop;
+
 
 import java.util.List;
 
@@ -22,25 +22,11 @@ public class RooftopServiceImpl implements RooftopService {
         return rooftopRepository.findByBuildingId(buildingId);
     }
 
-//    @Override
-//    public Rooftop getRooftopById(Long rooftopId) {
-//        return rooftopRepository.findById(rooftopId)
-//                .orElseThrow(() -> new NotFoundException("Rooftop not found with ID: " + rooftopId));
-//    }
-
     @Override
-    public void saveRooftop(Rooftop rooftop) {
-        rooftopRepository.save(rooftop);
-    }
-
-    @Override
-    public void deleteRooftopById(Long rooftopId) throws ChangeSetPersister.NotFoundException {
-        if (!rooftopRepository.existsById(rooftopId)) {
-            throw new ChangeSetPersister.NotFoundException();
-        }
-        rooftopRepository.deleteById(rooftopId);
+    public double getRooftopArea(Long rooftopId) {
+        Rooftop rooftop = rooftopRepository.findById(rooftopId).orElse(null);
+        return (rooftop != null) ? rooftop.getArea() : 0.0;
     }
 
     // Add more methods as needed
 }
-
