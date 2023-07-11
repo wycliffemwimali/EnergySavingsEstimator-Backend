@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BuildingServiceImpl implements BuidingService {
@@ -61,6 +62,20 @@ public class BuildingServiceImpl implements BuidingService {
     @Override
     public Building createBuilding(Building building) {
         return buildingRepository.save(building);
+    }
+
+    @Override
+    public Building updateBuilding(Long id, Building building) {
+        Optional<Building> optionalBuilding = buildingRepository.findById(id);
+        if (optionalBuilding.isPresent()) {
+            Building existingBuilding = optionalBuilding.get();
+            existingBuilding.setName(building.getName());
+            existingBuilding.setAddress(building.getAddress());
+            // Update other properties as needed
+            return buildingRepository.save(existingBuilding);
+        } else {
+            return null;
+        }
     }
 
 

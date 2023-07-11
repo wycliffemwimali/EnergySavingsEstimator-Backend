@@ -10,4 +10,6 @@ public interface BuidingService {
     Building getBuildingById(Long id);
 
     Building createBuilding(Building building);
+
+    Building updateBuilding(Long id, Building building);
 }

@@ -3,6 +3,7 @@ package com.example.reflectocalc.controller;
 import com.example.reflectocalc.model.Building;
 import com.example.reflectocalc.service.BuidingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
