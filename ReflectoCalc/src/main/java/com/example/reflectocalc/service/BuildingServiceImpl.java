@@ -78,6 +78,17 @@ public class BuildingServiceImpl implements BuidingService {
         }
     }
 
+    @Override
+    public boolean deleteBuilding(Long id) {
+        Optional<Building> optionalBuilding = buildingRepository.findById(id);
+        if (optionalBuilding.isPresent()) {
+            buildingRepository.delete(optionalBuilding.get());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     // Add more methods as needed
 }

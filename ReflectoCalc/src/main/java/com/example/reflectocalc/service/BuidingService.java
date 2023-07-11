@@ -12,4 +12,6 @@ public interface BuidingService {
     Building createBuilding(Building building);
 
     Building updateBuilding(Long id, Building building);
+
+    boolean deleteBuilding(Long id);
 }
