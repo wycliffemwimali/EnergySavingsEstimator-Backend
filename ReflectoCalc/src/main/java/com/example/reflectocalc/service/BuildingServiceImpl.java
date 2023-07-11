@@ -58,6 +58,11 @@ public class BuildingServiceImpl implements BuidingService {
         return buildingRepository.findById(id).orElse(null);
     }
 
+    @Override
+    public Building createBuilding(Building building) {
+        return buildingRepository.save(building);
+    }
+
 
     // Add more methods as needed
 }

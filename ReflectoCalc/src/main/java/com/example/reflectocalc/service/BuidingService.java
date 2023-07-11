@@ -8,4 +8,6 @@ public interface BuidingService {
     double getAverageTemperature(Building building);
 
     Building getBuildingById(Long id);
+
+    Building createBuilding(Building building);
 }
