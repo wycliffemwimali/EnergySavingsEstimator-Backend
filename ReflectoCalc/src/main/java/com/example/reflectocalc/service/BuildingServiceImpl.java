@@ -53,6 +53,11 @@ public class BuildingServiceImpl implements BuidingService {
         return averageTemperature;
     }
 
+    @Override
+    public Building getBuildingById(Long id) {
+        return buildingRepository.findById(id).orElse(null);
+    }
+
 
     // Add more methods as needed
 }

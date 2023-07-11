@@ -6,4 +6,6 @@ public interface BuidingService {
     double calculateEnergySavingsByReflectance(Building building);
     double calculateCoolingLoad(Building building);
     double getAverageTemperature(Building building);
+
+    Building getBuildingById(Long id);
 }
