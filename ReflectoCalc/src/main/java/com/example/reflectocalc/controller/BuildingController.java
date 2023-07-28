@@ -17,7 +17,7 @@ public class BuildingController {
         this.buildingService = buildingService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("list/{id}")
     public ResponseEntity<Building> getBuildingById(@PathVariable Long id) {
         Building building = buildingService.getBuildingById(id);
         if (building != null) {
@@ -27,7 +27,7 @@ public class BuildingController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Building> createBuilding(@RequestBody Building building) {
         Building createdBuilding = buildingService.createBuilding(building);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdBuilding);

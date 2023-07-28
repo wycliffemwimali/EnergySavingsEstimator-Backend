@@ -13,4 +13,8 @@ public interface RooftopService {
 //    void deleteRooftopById(Long rooftopId) throws ChangeSetPersister.NotFoundException;
 
     double getRooftopArea(Long rooftopId);
+
+    Rooftop saveRooftop(Rooftop rooftop);
+
+    Rooftop getRooftopById(Long id);
 }

@@ -1,18 +1,16 @@
 package com.example.reflectocalc.controller;
 
+import com.example.reflectocalc.DTO.RooftopAreaDTO;
 import com.example.reflectocalc.model.Rooftop;
 import com.example.reflectocalc.service.RooftopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/rooftops")
+@RequestMapping("/api/rooftop")
 public class RooftopController {
     private final RooftopService rooftopService;
 
@@ -21,18 +19,41 @@ public class RooftopController {
         this.rooftopService = rooftopService;
     }
 
-    @GetMapping("/building/{buildingId}")
-    public ResponseEntity<List<Rooftop>> getRooftopsByBuildingId(@PathVariable Long buildingId) {
-        List<Rooftop> rooftops = rooftopService.getRooftopsByBuildingId(buildingId);
-        return ResponseEntity.ok(rooftops);
+    @PostMapping("/area")
+    public ResponseEntity<Rooftop> saveRooftopArea(@RequestBody RooftopAreaDTO rooftopAreaDTO) {
+        double rooftopArea = rooftopAreaDTO.getArea();
+
+        // Create a Rooftop object and save it to the database
+        Rooftop rooftop = new Rooftop();
+        rooftop.setArea(rooftopArea);
+        Rooftop savedRooftop = rooftopService.saveRooftop(rooftop);
+
+        return ResponseEntity.ok(savedRooftop);
     }
 
-    @GetMapping("/{rooftopId}/area")
-    public ResponseEntity<Double> getRooftopArea(@PathVariable Long rooftopId) {
-        double rooftopArea = rooftopService.getRooftopArea(rooftopId);
-        return ResponseEntity.ok(rooftopArea);
+    @GetMapping("/{id}")
+    public ResponseEntity<Rooftop> getRooftopById(@PathVariable Long id) {
+        Rooftop rooftop = rooftopService.getRooftopById(id);
+        if (rooftop != null) {
+            return ResponseEntity.ok(rooftop);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    // Add more methods as needed
+    @PutMapping("/{id}")
+    public ResponseEntity<Rooftop> updateRooftop(@PathVariable Long id, @RequestBody Rooftop updatedRooftop) {
+        Rooftop rooftop = rooftopService.getRooftopById(id);
+
+        if (rooftop == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        rooftop.setArea(updatedRooftop.getArea());
+        rooftop.setReflectance(updatedRooftop.getReflectance());
+
+        updatedRooftop = rooftopService.saveRooftop(rooftop);
+        return ResponseEntity.ok(updatedRooftop);
+    }
 }
 
