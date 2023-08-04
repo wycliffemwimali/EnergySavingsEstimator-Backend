@@ -6,10 +6,15 @@ import com.example.reflectocalc.service.RooftopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*") // Replace with the actual URL of your frontend
 @RequestMapping("/api/rooftop")
 public class RooftopController {
     private final RooftopService rooftopService;
@@ -26,6 +31,7 @@ public class RooftopController {
         // Create a Rooftop object and save it to the database
         Rooftop rooftop = new Rooftop();
         rooftop.setArea(rooftopArea);
+
         Rooftop savedRooftop = rooftopService.saveRooftop(rooftop);
 
         return ResponseEntity.ok(savedRooftop);
