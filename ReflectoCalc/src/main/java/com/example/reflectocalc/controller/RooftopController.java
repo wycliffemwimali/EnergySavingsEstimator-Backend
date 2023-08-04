@@ -27,15 +27,21 @@ public class RooftopController {
     @PostMapping("/area")
     public ResponseEntity<Rooftop> saveRooftopArea(@RequestBody RooftopAreaDTO rooftopAreaDTO) {
         double rooftopArea = rooftopAreaDTO.getArea();
+        double rooftopReflectance = rooftopAreaDTO.getReflectance();
+        String rooftopMaterial = rooftopAreaDTO.getMaterial();
 
-        // Create a Rooftop object and save it to the database
+        // Create a Rooftop object and set the area, reflectance, and material
         Rooftop rooftop = new Rooftop();
         rooftop.setArea(rooftopArea);
+        rooftop.setReflectance(rooftopReflectance);
+        rooftop.setMaterial(rooftopMaterial);
 
+        // Save the rooftop object to the database
         Rooftop savedRooftop = rooftopService.saveRooftop(rooftop);
 
         return ResponseEntity.ok(savedRooftop);
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Rooftop> getRooftopById(@PathVariable Long id) {
