@@ -33,13 +33,16 @@ public class RooftopServiceImpl implements RooftopService {
     public Rooftop saveRooftop(Rooftop rooftop) {
         return rooftopRepository.save(rooftop);
     }
-    public double calculateEnergySavings(double rooftopArea) {
-        return rooftopArea * CONSTANT_FACTOR;
-    }
 
     @Override
     public Rooftop getRooftopById(Long id) {
         return rooftopRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Long getLatestRooftopId() {
+        Long latestRooftopId = rooftopRepository.findTopByOrderByIdDesc().getId();
+        return latestRooftopId;
     }
 
     // Add more methods as needed

@@ -4,6 +4,7 @@ import com.example.reflectocalc.DTO.RooftopAreaDTO;
 import com.example.reflectocalc.model.Rooftop;
 import com.example.reflectocalc.service.RooftopService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "*") // Replace with the actual URL of your frontend
@@ -52,6 +55,13 @@ public class RooftopController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/latest-rooftop")
+    public ResponseEntity<Long> getLatestRooftopId() {
+        Long latestRooftopId = rooftopService.getLatestRooftopId();
+        return ResponseEntity.ok(latestRooftopId);
+    }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Rooftop> updateRooftop(@PathVariable Long id, @RequestBody Rooftop updatedRooftop) {

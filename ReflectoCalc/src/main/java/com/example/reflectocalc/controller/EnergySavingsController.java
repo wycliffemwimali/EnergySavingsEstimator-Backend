@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*") // Replace with the actual URL of your frontend
 @RequestMapping("/api")
 public class EnergySavingsController {
 
