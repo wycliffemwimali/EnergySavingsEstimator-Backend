@@ -39,7 +39,7 @@ public class RooftopController {
         // Save the rooftop object to the database
         Rooftop savedRooftop = rooftopService.saveRooftop(rooftop);
 
-        return ResponseEntity.ok(savedRooftop);
+        return ResponseEntity.ok().body(savedRooftop);
     }
 
 
