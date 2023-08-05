@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class RooftopServiceImpl implements RooftopService {
     private final RooftopRepository rooftopRepository;
+    private static final double CONSTANT_FACTOR = 0.5;
 
     @Autowired
     public RooftopServiceImpl(RooftopRepository rooftopRepository) {
@@ -31,6 +32,9 @@ public class RooftopServiceImpl implements RooftopService {
     @Override
     public Rooftop saveRooftop(Rooftop rooftop) {
         return rooftopRepository.save(rooftop);
+    }
+    public double calculateEnergySavings(double rooftopArea) {
+        return rooftopArea * CONSTANT_FACTOR;
     }
 
     @Override

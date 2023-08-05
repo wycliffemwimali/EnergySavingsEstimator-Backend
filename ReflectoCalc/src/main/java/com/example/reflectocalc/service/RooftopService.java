@@ -17,4 +17,5 @@ public interface RooftopService {
     Rooftop saveRooftop(Rooftop rooftop);
 
     Rooftop getRooftopById(Long id);
+    double calculateEnergySavings(double rooftopArea);
 }

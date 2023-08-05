@@ -21,9 +21,10 @@ public class BuildingServiceImpl implements BuidingService {
 
     @Override
     public double calculateEnergySavingsByReflectance(Building building) {
-        double reflectance = building.getRooftop().getReflectance();
+//        double reflectance = building.getRooftop().getReflectance();
+        double rooftopArea = building.getRooftop().getArea();
         // Perform calculation logic here
-        double energySavings = reflectance * 0.5;
+        double energySavings = rooftopArea * 0.5;
 
         return energySavings;
     }
