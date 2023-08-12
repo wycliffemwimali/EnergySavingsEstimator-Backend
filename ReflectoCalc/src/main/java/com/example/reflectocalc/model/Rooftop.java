@@ -27,10 +27,6 @@ public class Rooftop {
     @Column(name = "reflectance")
     private double reflectance;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "building_id")
-//    private Building building;
-
     @OneToOne
     @JoinColumn(name = "building_id")
     private Building building;
