@@ -26,46 +26,50 @@ This repository contains the backend implementation of the Rooftop Energy Saving
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/rooftop-energy-savings-backend.git
+   git clone [https://github.com/your-username/rooftop-energy-savings-backend.git](https://github.com/wycliffemwimali/EnergySavingsEstimator-Backend)
 
 2. Navigate to the project directory:
-  ```bash   
-  cd rooftop-energy-savings-backend
+
+   ```bash   
+   cd rooftop-energy-savings-backend
+
 
 3. Build the project using Maven:
 
-bash
-Copy code
-mvn clean install
-Project Structure
+    ```bash
+    mvn clean install
+    
+4. Project Structure
+5. 
 The project follows a standard Maven project structure:
 
-bash
-Copy code
-rooftop-energy-savings-backend/
-├── src/
-│   ├── main/
-│   │   ├── java/       # Java source code
-│   │   ├── resources/  # Configuration files
-│   │   └── ...
-│   └── test/
-│       ├── java/       # Test source code
-│       └── ...
-├── pom.xml             # Maven configuration
-└── ...
-Usage
-Running the Application
-Ensure you have the necessary prerequisites installed.
+   ```bash
+    rooftop-energy-savings-backend/
+    ├── src/
+    │   ├── main/
+    │   │   ├── java/       # Java source code
+    │   │   ├── resources/  # Configuration files
+    │   │   └── ...
+    │   └── test/
+    │       ├── java/       # Test source code
+    │       └── ...
+    ├── pom.xml             # Maven configuration
+    └── ...
+   
+6. Usage
+  Running the Application
+  Ensure you have the necessary prerequisites installed.
 
-Run the application using Maven:
+  Run the application using Maven:
 
-bash
-Copy code
-mvn spring-boot:run
-The application will start on the default port 8080.
+     ```bash
+    mvn spring-boot:run
+    The application will start on the default port 8080.
 
-API Documentation
+7. API Documentation
+
+   
 The API documentation can be accessed by navigating to http://localhost:8080/swagger-ui.html after starting the application. This provides a detailed overview of the available APIs and how to use them.
 
-Contributing
+8. Contributing
 Contributions to this project are welcome! If you find a bug or have an idea for an enhancement, feel free to open an issue or submit a pull request.
