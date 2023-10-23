@@ -1,75 +1,59 @@
-# Rooftop Energy Savings Backend
+**Backend Link**
+https://github.com/wycliffemwimali/EnergySavingsEstimator-Backend
 
-This repository contains the backend implementation of the Rooftop Energy Savings application. This application calculates energy savings based on rooftop area and provides APIs for managing rooftop data.
-
-## Table of Contents
-
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Project Structure](#project-structure)
-- [Usage](#usage)
-  - [Running the Application](#running-the-application)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Getting Started
-
-### Prerequisites
-
-- Java Development Kit (JDK) 8 or later
-- Apache Maven
-
-### Installation
-
-1. Clone this repository to your local machine:
-
-   ```bash
-   git clone [https://github.com/your-username/rooftop-energy-savings-backend.git](https://github.com/wycliffemwimali/EnergySavingsEstimator-Backend)
-
-2. Navigate to the project directory:
-
-   ```bash   
-   cd rooftop-energy-savings-backend
+![Homescreen](https://github.com/wycliffemwimali/EnergySavingsEstimator-frontend/assets/99508839/490cf6e9-163e-4246-a248-30b7fac0a41d)
 
 
-3. Build the project using Maven:
+**Energy Savings Calculator**
 
-    ```bash
-    mvn clean install
-    
-4. Project Structure
-5. 
-The project follows a standard Maven project structure:
+The Energy Savings Calculator is a user-friendly web application designed to determine the potential energy and cost savings for a rooftop. This tool is invaluable for assessing the financial and environmental benefits of installing energy-efficient materials on rooftops.
 
-   ```bash
-    rooftop-energy-savings-backend/
-    ├── src/
-    │   ├── main/
-    │   │   ├── java/       # Java source code
-    │   │   ├── resources/  # Configuration files
-    │   │   └── ...
-    │   └── test/
-    │       ├── java/       # Test source code
-    │       └── ...
-    ├── pom.xml             # Maven configuration
-    └── ...
-   
-6. Usage
-  Running the Application
-  Ensure you have the necessary prerequisites installed.
+**Features**
 
-  Run the application using Maven:
+Rooftop Energy Savings Prediction: The calculator uses inputs such as rooftop area and material to predict potential energy savings. This information empowers users to make informed decisions about energy-efficient upgrades.
 
-     ```bash
-    mvn spring-boot:run
-    The application will start on the default port 8080.
+Currency Conversion: The application not only estimates energy savings but also converts them into both USD and Kenyan Shillings (KES), enabling users to understand the monetary benefits of their choices.
 
-7. API Documentation
+Interactive Visualization: The calculator presents the calculated savings through an intuitive circular chart. This visualization aids users in comprehending and comparing monthly and annual savings at a glance.
 
-   
-The API documentation can be accessed by navigating to http://localhost:8080/swagger-ui.html after starting the application. This provides a detailed overview of the available APIs and how to use them.
+**How to Use**
 
-8. Contributing
-Contributions to this project are welcome! If you find a bug or have an idea for an enhancement, feel free to open an issue or submit a pull request.
+Input Details: Navigate to the Map intergration component and select coordinates of your building to calculate area, Enter your roof material.
+
+Calculate: Click the "Calculate" button to initiate the energy savings prediction process.
+
+Results: The calculated monthly and annual savings will be displayed in both USD and KES. The circular chart will also visually represent these savings for better understanding.
+
+**Testing and Scalability**
+
+The Energy Savings Calculator has been rigorously tested to ensure its performance and scalability. One notable test involved generating 10,000 user requests concurrently using the Apache Beam framework. This test confirms the application's ability to handle a high volume of users without compromising its responsiveness.
+
+**Installation**
+
+To set up the Energy Savings Calculator locally, follow these steps:
+
+Clone the repository: git clone https://github.com/wycliffemwimali/EnergySavingsEstimator-frontend  for frontend.
+
+                      https://github.com/wycliffemwimali/EnergySavingsEstimator-Backend for backend.
+
+Navigate to the project directory: cd energy-savings-calculator
+
+Install dependencies: npm install
+
+Start the development server: npm start
+
+Access the application through your web browser at http://localhost:3000
+
+**Feedback and Contributions**
+
+We welcome feedback, bug reports, and contributions from the developer community. If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on our GitHub repository.
+
+**Contact**
+
+For inquiries or further information about the Energy Savings Calculator, please contact our team at wycliffemwimali2@gmail.com.
+
+**License**
+
+This project is licensed under the MIT License. You are encouraged to use, modify, and distribute the application in accordance with the terms specified in the license.
+
+By utilizing the Energy Savings Calculator, users can make informed decisions regarding rooftop upgrades, harnessing the power of energy efficiency to both reduce costs and contribute to a more sustainable future.
