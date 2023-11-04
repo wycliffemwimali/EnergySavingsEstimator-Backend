@@ -37,7 +37,7 @@ public class BuildingServiceImpl implements BuidingService {
 
         // Calculation logic for cooling load
         double temperatureDifference = indoorTemperature - outdoorTemperature;
-        double coolingLoad = temperatureDifference * roofArea * 0.1; // Example calculation, adjust according to your requirements
+        double coolingLoad = temperatureDifference * roofArea * 0.1;
 
         return coolingLoad;
     }
@@ -45,7 +45,7 @@ public class BuildingServiceImpl implements BuidingService {
     @Override
     public double getAverageTemperature(Building building) {
         // Retrieve temperature data and calculate average temperature
-        List<Double> temperatureData = Collections.singletonList(building.getTemperatureData()); // Assuming temperatureData is a list of temperature values
+        List<Double> temperatureData = Collections.singletonList(building.getTemperatureData()); 
         double sum = 0.0;
         for (Double temperature : temperatureData) {
             sum += temperature;
@@ -72,7 +72,6 @@ public class BuildingServiceImpl implements BuidingService {
             Building existingBuilding = optionalBuilding.get();
             existingBuilding.setName(building.getName());
             existingBuilding.setAddress(building.getAddress());
-            // Update other properties as needed
             return buildingRepository.save(existingBuilding);
         } else {
             return null;
@@ -91,5 +90,4 @@ public class BuildingServiceImpl implements BuidingService {
     }
 
 
-    // Add more methods as needed
 }
