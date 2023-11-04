@@ -45,5 +45,4 @@ public class RooftopServiceImpl implements RooftopService {
         return latestRooftopId;
     }
 
-    // Add more methods as needed
 }
