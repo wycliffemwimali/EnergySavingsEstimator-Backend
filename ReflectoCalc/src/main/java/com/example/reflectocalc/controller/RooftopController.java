@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "*") // Replace with the actual URL of your frontend
+@CrossOrigin(origins = "*") 
 @RequestMapping("/api/rooftop")
 public class RooftopController {
     private final RooftopService rooftopService;
