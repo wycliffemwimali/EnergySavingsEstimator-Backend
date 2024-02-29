@@ -1,5 +1,7 @@
 package com.example.reflectocalc.service;
 
+import com.example.reflectocalc.Repository.EnergySavingsRepository;
+import com.example.reflectocalc.Repository.RooftopRepository;
 import com.example.reflectocalc.model.Rooftop;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -9,10 +11,12 @@ import org.springframework.stereotype.Service;
 public class EnergySavingsServiceImpl implements EnergySavingsService {
 
     private final RooftopService rooftopService;
+    private final EnergySavingsRepository energySavingsRepository;
 
     @Autowired
-    public EnergySavingsServiceImpl(RooftopService rooftopService) {
+    public EnergySavingsServiceImpl(RooftopService rooftopService, EnergySavingsRepository energySavingsRepository) {
         this.rooftopService = rooftopService;
+        this.energySavingsRepository = energySavingsRepository;
     }
 
     @Override

@@ -12,15 +12,34 @@ public class EnergySavings {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "date")
-    private LocalDate date;
+//    @Column(name = "date")
+//    private LocalDate date;
+//
+//    @Column(name = "savings")
+//    private double savings;
+    private Long rooftopId;
 
-    @Column(name = "savings")
-    private double savings;
+    public Long getRooftopId() {
+        return rooftopId;
+    }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "building_id")
-    private Building building;
+    public void setRooftopId(Long rooftopId) {
+        this.rooftopId = rooftopId;
+    }
+
+    public Double getEnergySavings() {
+        return energySavings;
+    }
+
+    public void setEnergySavings(Double energySavings) {
+        this.energySavings = energySavings;
+    }
+
+    private Double energySavings;
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "building_id")
+//    private Building building;
 
     public Long getId() {
         return id;
@@ -30,27 +49,27 @@ public class EnergySavings {
         this.id = id;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
+//    public LocalDate getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(LocalDate date) {
+//        this.date = date;
+//    }
+//
+//    public double getSavings() {
+//        return savings;
+//    }
+//
+//    public void setSavings(double savings) {
+//        this.savings = savings;
+//    }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public double getSavings() {
-        return savings;
-    }
-
-    public void setSavings(double savings) {
-        this.savings = savings;
-    }
-
-    public Building getBuilding() {
-        return building;
-    }
-
-    public void setBuilding(Building building) {
-        this.building = building;
-    }
+//    public Building getBuilding() {
+//        return building;
+//    }
+//
+//    public void setBuilding(Building building) {
+//        this.building = building;
+//    }
 }
