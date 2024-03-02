@@ -12,11 +12,11 @@ public class EnergySavings {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name = "date")
-//    private LocalDate date;
-//
-//    @Column(name = "savings")
-//    private double savings;
+    @Column(name = "date")
+    private LocalDate date;
+
+    @Column(name = "savings")
+    private double savings;
     private Long rooftopId;
 
     public Long getRooftopId() {
@@ -37,9 +37,9 @@ public class EnergySavings {
 
     private Double energySavings;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "building_id")
-//    private Building building;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "building_id")
+    private Building building;
 
     public Long getId() {
         return id;
@@ -49,27 +49,27 @@ public class EnergySavings {
         this.id = id;
     }
 
-//    public LocalDate getDate() {
-//        return date;
-//    }
-//
-//    public void setDate(LocalDate date) {
-//        this.date = date;
-//    }
-//
-//    public double getSavings() {
-//        return savings;
-//    }
-//
-//    public void setSavings(double savings) {
-//        this.savings = savings;
-//    }
+    public LocalDate getDate() {
+        return date;
+    }
 
-//    public Building getBuilding() {
-//        return building;
-//    }
-//
-//    public void setBuilding(Building building) {
-//        this.building = building;
-//    }
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public double getSavings() {
+        return savings;
+    }
+
+    public void setSavings(double savings) {
+        this.savings = savings;
+    }
+
+    public Building getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
 }
