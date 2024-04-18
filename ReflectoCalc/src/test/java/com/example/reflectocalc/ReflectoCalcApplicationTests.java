@@ -38,7 +38,7 @@ class ReflectoCalcApplicationTests {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
         energySavingsServiceImpl = new EnergySavingsServiceImpl(rooftopService, energySavingsRepository);
     }
 
