@@ -2,12 +2,17 @@ package com.example.reflectocalc;
 
 import com.example.reflectocalc.Repository.EnergySavingsRepository;
 import com.example.reflectocalc.controller.EnergySavingsController;
+import com.example.reflectocalc.model.Rooftop;
 import com.example.reflectocalc.service.EnergySavingsService;
+import com.example.reflectocalc.service.EnergySavingsServiceImpl;
+import com.example.reflectocalc.service.RooftopService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,43 +23,50 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@ExtendWith(MockitoExtension.class)
 class ReflectoCalcApplicationTests {
 
-    @InjectMocks
-    private EnergySavingsService energySavingsService;
+    @Mock
+    private RooftopService rooftopService;
 
     @Mock
     private EnergySavingsRepository energySavingsRepository;
 
-    @InjectMocks
-    private EnergySavingsController energySavingsController;
+    private EnergySavingsServiceImpl energySavingsServiceImpl;
+
+
 
     @BeforeEach
-    void init() {
-        MockitoAnnotations.openMocks(this);
+    void setUp() {
+        MockitoAnnotations.initMocks(this);
+        energySavingsServiceImpl = new EnergySavingsServiceImpl(rooftopService, energySavingsRepository);
     }
-    @Autowired
-    private MockMvc mockMvc;
 
     @Test
     void contextLoads() {
     }
+
     @Test
-    void testGetEnergySavings() {
+    void testCalculateEnergySavingsByRooftopId() {
         // Arrange
         Long rooftopId = 1L;
-        double expectedEnergySavings = 100.0;
+        Rooftop rooftop = new Rooftop();
+        rooftop.setId(rooftopId);
+        rooftop.setArea(100.0);
+        double constantFactor = 0.5; // Assuming a constant factor
+        double expectedEnergySavings = rooftop.getArea() * constantFactor;
 
-        // Configure mock behavior to return the expected value when the service method is called
-        when(energySavingsService.calculateEnergySavingsByRooftopId(rooftopId)).thenReturn(expectedEnergySavings);
+        // Mock behavior
+        when(rooftopService.getRooftopById(rooftopId)).thenReturn(rooftop);
 
         // Act
-        double responseEntity = energySavingsService.calculateEnergySavingsByRooftopId(rooftopId);
+        double actualEnergySavings = energySavingsServiceImpl.calculateEnergySavingsByRooftopId(rooftopId);
 
         // Assert
-//        assertEquals(HttpStatus.OK, responseEntity.());
-//        assertEquals(expectedEnergySavings, responseEntity.getBody()); // Ensure the expected value is returned
-        verify(energySavingsRepository, times(1)).save(any());
+        assertEquals(expectedEnergySavings, actualEnergySavings);
+        verify(rooftopService, times(1)).getRooftopById(rooftopId);
+        verifyNoMoreInteractions(rooftopService);
     }
+
 
 }

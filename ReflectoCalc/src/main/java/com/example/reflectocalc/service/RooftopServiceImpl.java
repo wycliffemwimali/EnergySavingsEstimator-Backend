@@ -27,6 +27,7 @@ public class RooftopServiceImpl implements RooftopService {
     public double getRooftopArea(Long rooftopId) {
         Rooftop rooftop = rooftopRepository.findById(rooftopId).orElse(null);
         return (rooftop != null) ? rooftop.getArea() : 0.0;
+
     }
 
     @Override
