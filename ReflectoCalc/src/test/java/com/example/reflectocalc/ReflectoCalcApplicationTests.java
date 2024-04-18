@@ -6,6 +6,7 @@ import com.example.reflectocalc.model.Rooftop;
 import com.example.reflectocalc.service.EnergySavingsService;
 import com.example.reflectocalc.service.EnergySavingsServiceImpl;
 import com.example.reflectocalc.service.RooftopService;
+import com.example.reflectocalc.service.RooftopServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,7 +28,7 @@ import static org.mockito.Mockito.*;
 class ReflectoCalcApplicationTests {
 
     @InjectMocks
-    private RooftopService rooftopService;
+    private RooftopServiceImpl rooftopServiceImpl;
 
     @Mock
     private EnergySavingsRepository energySavingsRepository;
@@ -39,7 +40,7 @@ class ReflectoCalcApplicationTests {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        energySavingsServiceImpl = new EnergySavingsServiceImpl(rooftopService, energySavingsRepository);
+        energySavingsServiceImpl = new EnergySavingsServiceImpl(rooftopServiceImpl, energySavingsRepository);
     }
 
     @Test
@@ -57,15 +58,15 @@ class ReflectoCalcApplicationTests {
         double expectedEnergySavings = rooftop.getArea() * constantFactor;
 
         // Mock behavior
-        when(rooftopService.getRooftopById(rooftopId)).thenReturn(rooftop);
+        when(rooftopServiceImpl.getRooftopById(rooftopId)).thenReturn(rooftop);
 
         // Act
         double actualEnergySavings = energySavingsServiceImpl.calculateEnergySavingsByRooftopId(rooftopId);
 
         // Assert
         assertEquals(expectedEnergySavings, actualEnergySavings);
-        verify(rooftopService, times(1)).getRooftopById(rooftopId);
-        verifyNoMoreInteractions(rooftopService);
+        verify(rooftopServiceImpl, times(1)).getRooftopById(rooftopId);
+        verifyNoMoreInteractions(rooftopServiceImpl);
     }
 
 
