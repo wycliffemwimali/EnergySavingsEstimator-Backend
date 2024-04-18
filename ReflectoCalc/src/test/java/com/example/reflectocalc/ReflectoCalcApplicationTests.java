@@ -26,7 +26,7 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class ReflectoCalcApplicationTests {
 
-    @Mock
+    @InjectMocks
     private RooftopService rooftopService;
 
     @Mock
