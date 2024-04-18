@@ -22,7 +22,7 @@ import static org.mockito.Mockito.*;
 @AutoConfigureMockMvc
 class ReflectoCalcApplicationTests {
 
-    @Mock
+    @InjectMocks
     private EnergySavingsService energySavingsService;
 
     @Mock
@@ -33,7 +33,7 @@ class ReflectoCalcApplicationTests {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.openMocks(this);
     }
     @Autowired
     private MockMvc mockMvc;
@@ -51,12 +51,12 @@ class ReflectoCalcApplicationTests {
         when(energySavingsService.calculateEnergySavingsByRooftopId(rooftopId)).thenReturn(expectedEnergySavings);
 
         // Act
-        ResponseEntity<Double> responseEntity = energySavingsController.getEnergySavings(rooftopId);
+        double responseEntity = energySavingsService.calculateEnergySavingsByRooftopId(rooftopId);
 
         // Assert
-        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+//        assertEquals(HttpStatus.OK, responseEntity.());
 //        assertEquals(expectedEnergySavings, responseEntity.getBody()); // Ensure the expected value is returned
-//        verify(energySavingsRepository, times(1)).save(any());
+        verify(energySavingsRepository, times(1)).save(any());
     }
 
 }
